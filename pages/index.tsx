@@ -60,12 +60,9 @@ export async function getServerSideProps() {
 
 export default function Home(props) {
   const { res } = props;
-  console.log(res);
   return (
     <div className="w-full">
-      {res.map((val) => {
-        console.log(val)
-        return (
+      {res.map((val) => (
         <Carousel
           opts={{
             align: "start",
@@ -76,8 +73,7 @@ export default function Home(props) {
           <CarouselContent className="gap-5">
             {val.res &&
               val.res.map((genre) => (
-                
-                  <Card>
+                  <Card key={genre.id}>
                     <CardContent className="flex aspect-square items-center justify-center w-80 h-80 relative p-0">
                       <Image
                         src={w500BasePath + genre.poster_path}
@@ -93,7 +89,7 @@ export default function Home(props) {
               ))}
           </CarouselContent>
         </Carousel>
-      )})}
+      ))}
     </div>
   );
 }

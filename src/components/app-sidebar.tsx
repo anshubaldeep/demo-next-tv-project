@@ -36,9 +36,7 @@ import { useRouter } from "next/router";
           <SidebarGroupLabel className="text-gray-400">Application</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => {
-                console.log(pathname, item.url, pathname === item.url)
-                return(
+              {items.map((item) => (
                 <SidebarMenuItem key={item.title} className="mt-2">
                   <SidebarMenuButton asChild>
                     <a href={item.url} className={cn("text-white text-lg py-6", pathname === item.url && 'bg-gray-400 text-black')}>
@@ -47,7 +45,7 @@ import { useRouter } from "next/router";
                     </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
-              )})}
+              ))}
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
