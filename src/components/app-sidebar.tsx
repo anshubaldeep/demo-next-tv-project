@@ -1,56 +1,48 @@
 import {
-    Sidebar,
-    SidebarContent,
-    SidebarFooter,
-    SidebarGroup,
-    SidebarGroupContent,
-    SidebarGroupLabel,
-    SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
-  } from "@/components/ui/sidebar"
-import { cn } from "@/lib/utils";
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarMenu,
+} from "@/components/ui/sidebar";
+import { FocusContext, useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 import { Clock, Home } from "lucide-react";
-import { useRouter } from "next/router";
+import AppSidebarMenutItem from "./app-sidebar-menu-item";
 
-  const items = [
-    {
-      title: "Home",
-      url: "/",
-      icon: Home,
-    },
-    {
-      title: "Watchlist",
-      url: "/watchlist",
-      icon: Clock,
-    },
-  ];
-  
-  export function AppSidebar() {
-    const {pathname} = useRouter()
-    return (
-      <Sidebar variant='inset'>
+const items = [
+  {
+    title: "Home",
+    url: "/",
+    icon: Home,
+  },
+  {
+    title: "Watchlist",
+    url: "/watchlist",
+    icon: Clock,
+  },
+];
+
+export function AppSidebar() {
+  const { ref, focusKey } = useFocusable();
+  return (
+    <FocusContext.Provider value={focusKey}>
+      <Sidebar variant="sidebar" ref={ref} className="border-none">
         <SidebarContent className="bg-slate-900 rouded-r-lg">
-        <SidebarGroup>
-          <SidebarGroupLabel className="text-gray-400">Application</SidebarGroupLabel>
-          <SidebarGroupContent>
-            <SidebarMenu>
-              {items.map((item) => (
-                <SidebarMenuItem key={item.title} className="mt-2">
-                  <SidebarMenuButton asChild>
-                    <a href={item.url} className={cn("text-white text-lg py-6", pathname === item.url && 'bg-gray-400 text-black')}>
-                      <item.icon />
-                      <span>{item.title}</span>
-                    </a>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              ))}
-            </SidebarMenu>
-          </SidebarGroupContent>
-        </SidebarGroup>
+          <SidebarGroup>
+            <SidebarGroupLabel className="text-gray-400">
+              Application
+            </SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                {items.map((item, index) => (
+                  <AppSidebarMenutItem item={item} index={index} />
+                ))}
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
         </SidebarContent>
       </Sidebar>
-    )
-  }
-  
+    </FocusContext.Provider>
+  );
+}

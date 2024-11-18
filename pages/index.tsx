@@ -1,8 +1,6 @@
-import { Card, CardContent } from "@/components/ui/card";
+import AppCard from "@/components/app-card";
+import AppCarousel from "@/components/app-carousel";
 import { Carousel, CarouselContent } from "@/components/ui/carousel";
-import Head from "next/head";
-import Image from "next/image";
-import { w500BasePath } from "./helper";
 
 const options = {
   method: "GET",
@@ -62,33 +60,11 @@ export default function Home(props) {
   const { res } = props;
   return (
     <div className="w-full">
-      {res.map((val) => (
-        <Carousel
-          opts={{
-            align: "start",
-          }}
-          className="w-full mt-10"
-        >
-          <h1 className="text-white text-xl">{val.name}</h1>
-          <CarouselContent className="gap-5">
-            {val.res &&
-              val.res.map((genre) => (
-                  <Card key={genre.id}>
-                    <CardContent className="flex aspect-square items-center justify-center w-80 h-80 relative p-0">
-                      <Image
-                        src={w500BasePath + genre.poster_path}
-                        width={500}
-                        height={500}
-                        className="object-cover w-full h-full brightness-50 rounded-xl"
-                      />
-                      <span className="text-3xl font-semibold text-white truncate absolute bottom-50 left-0 right-0 text-center">
-                        {genre.original_title}
-                      </span>
-                    </CardContent>
-                  </Card>
-              ))}
-          </CarouselContent>
-        </Carousel>
+      {res.map((val, index) => (
+        <AppCarousel
+          val={val}
+          trayIndex={index}
+        />
       ))}
     </div>
   );

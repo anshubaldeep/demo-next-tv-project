@@ -52,17 +52,14 @@ const Carousel = React.forwardRef<
       plugins,
       className,
       children,
+      //@ts-ignore
+      carouselRef,
+      //@ts-ignore
+      api,
       ...props
     },
     ref
   ) => {
-    const [carouselRef, api] = useEmblaCarousel(
-      {
-        ...opts,
-        axis: orientation === "horizontal" ? "x" : "y",
-      },
-      plugins
-    )
     const [canScrollPrev, setCanScrollPrev] = React.useState(false)
     const [canScrollNext, setCanScrollNext] = React.useState(false)
 
