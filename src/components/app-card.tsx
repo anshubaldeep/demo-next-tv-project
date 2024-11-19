@@ -4,14 +4,19 @@ import Image from "next/image";
 import { w500BasePath } from "../../pages/helper";
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 import { cn } from "@/lib/utils";
+import { useRouter } from "next/router";
 
 const AppCard = ({ genre, trayIndex, cardIndex, onFocus }) => {
+  const { push } = useRouter();
+  const onCardPress = () => {
+    push('/programInfo/' + genre.id)
+  };
   const { ref, focused, focusKey } = useFocusable({
     focusKey: `Card-${trayIndex}-${cardIndex}`,
-    onFocus: () => onFocus(cardIndex)
+    onFocus: () => onFocus(cardIndex),
+    onEnterPress: onCardPress,
   });
-  
-  
+
   return (
     <Card
       key={genre.id}

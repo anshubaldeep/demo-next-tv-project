@@ -1,15 +1,6 @@
-import AppCard from "@/components/app-card";
 import AppCarousel from "@/components/app-carousel";
-import { Carousel, CarouselContent } from "@/components/ui/carousel";
+import { options } from "./helper";
 
-const options = {
-  method: "GET",
-  headers: {
-    accept: "application/json",
-    Authorization:
-      "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhM2MzYWMwYmQwODZlMzQxY2YyNDRhOWZjMTI2NzQ5ZiIsIm5iZiI6MTczMTg2Nzc1My40MDEyMTksInN1YiI6IjYwOTQxNTZhNTI4YjJlMDA1ODQ5Y2IzNSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.xNEAFPBpV5tATTtNKwWTYbETjg7Pd_rrim_XYMS4fYw",
-  },
-};
 
 // export async function getServerSideProps() {
 //   const res = await fetch(
@@ -64,6 +55,9 @@ export default function Home(props) {
         <AppCarousel
           val={val}
           trayIndex={index}
+          {...index === 0 && {
+            focusOnload: true
+          }}
         />
       ))}
     </div>

@@ -5,18 +5,23 @@ import { useRouter } from "next/router";
 import { setFocus, useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 
 const AppSidebarMenutItem = ({ item, index }) => {
-  const { pathname } = useRouter();
+  const { pathname, push} = useRouter();
   const arrowPressInSidebar = (dir) => {
-    console.log(dir)
-    if(dir === 'right'){
+    if(dir === 'right' && pathname === '/'){
         setFocus('Card-0-0')
         return false;
     }
     return true;
   }
+  const onPressMenuItem = () => {
+    if(pathname !== item.url) {
+      push(item.url);
+    }
+  }
   const { ref, focused, focusKey, ...props } = useFocusable({
     onArrowPress: arrowPressInSidebar,
-    focusKey: `MenuItem-${index}`
+    focusKey: `MenuItem-${index}`,
+    onEnterPress: onPressMenuItem
   });
 
   return (

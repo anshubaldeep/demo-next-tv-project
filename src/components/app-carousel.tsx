@@ -8,7 +8,7 @@ import {
 import useEmblaCarousel from "embla-carousel-react";
 import { cn } from "@/lib/utils";
 
-const AppCarousel = ({ val, trayIndex }) => {
+const AppCarousel = ({ val, trayIndex, focusOnload = false }) => {
   const { ref, focusKey, focusSelf } = useFocusable({
     focusKey: `Tray-${trayIndex}`,
   });
@@ -17,7 +17,7 @@ const AppCarousel = ({ val, trayIndex }) => {
     axis: "x",
   });
   useEffect(() => {
-    if (val.name === "Upcoming") {
+    if (focusOnload) {
       focusSelf();
     }
   }, []);
@@ -41,7 +41,7 @@ const AppCarousel = ({ val, trayIndex }) => {
         //@ts-ignore
         carouselRef={emblaRef}
         api={emblaApi}
-        className={cn("w-full", trayIndex !== 0 && 'mt-12')}
+        className={cn("w-full", trayIndex !== 0 && "mt-12")}
         id={val.name}
         ref={ref}
       >
