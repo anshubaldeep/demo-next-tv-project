@@ -4,9 +4,9 @@ import { getOptions, options } from "../../src/helper";
 import AppButton from "@/components/app-button";
 import {
   FocusContext,
-  setFocus,
   useFocusable,
 } from "@noriginmedia/norigin-spatial-navigation";
+import Image from "next/image";
 
 export async function getServerSideProps(context) {
   // Use await directly on the fetch calls
@@ -43,7 +43,7 @@ const ProgramInfo = ({ movieDetails }) => {
     <div className="h-screen bg-gray-900 text-white" ref={ref}>
       <div className="flex">
         <div className="w-1/2 pb-20">
-          <img
+          <Image
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt={title}
             className="w-full h-[86%] py-10 pl-10 object-cover"

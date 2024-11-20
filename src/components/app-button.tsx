@@ -19,9 +19,11 @@ const AppButton = ({
   });
   useEffect(() => {
     if (focusSelfOnLoad) {
-      focusSelf();
+      setTimeout(()=> {
+        focusSelf();
+      }, 100)
     }
-  }, []);
+  }, [focusSelf, focusSelfOnLoad]);
   return (
     <Button ref={ref} className={cn(className, focused && focusedStyle)} {...props}>
       {title}

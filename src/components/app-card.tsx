@@ -28,6 +28,7 @@ const AppCard = ({ genre, trayIndex, cardIndex, onFocus }) => {
     >
       <CardContent className="flex aspect-square items-center w-full h-full justify-center relative p-0">
         <Image
+          alt={genre.original_title}
           src={w500BasePath + genre.poster_path}
           width={500}
           height={500}

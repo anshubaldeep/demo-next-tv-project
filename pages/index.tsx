@@ -55,6 +55,7 @@ export default function Home(props) {
         <AppCarousel
           val={val}
           trayIndex={index}
+          key={index}
           {...index === 0 && {
             focusOnload: true
           }}

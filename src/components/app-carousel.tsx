@@ -18,9 +18,11 @@ const AppCarousel = ({ val, trayIndex, focusOnload = false }) => {
   });
   useEffect(() => {
     if (focusOnload) {
-      focusSelf();
+      setTimeout(()=> {
+        focusSelf();
+      }, 100)
     }
-  }, []);
+  }, [focusOnload, focusSelf]);
   const handleFocus = useCallback(
     (cardIndex) => {
       if (emblaApi) {
@@ -33,7 +35,7 @@ const AppCarousel = ({ val, trayIndex, focusOnload = false }) => {
         });
       }
     },
-    [emblaApi]
+    [emblaApi, ref]
   );
   return (
     <FocusContext.Provider value={focusKey}>
@@ -54,6 +56,7 @@ const AppCarousel = ({ val, trayIndex, focusOnload = false }) => {
                 trayIndex={trayIndex}
                 cardIndex={index}
                 onFocus={handleFocus}
+                key={index}
               />
             ))}
         </CarouselContent>

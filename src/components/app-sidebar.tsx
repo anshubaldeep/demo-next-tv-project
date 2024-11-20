@@ -36,7 +36,7 @@ export function AppSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 {items.map((item, index) => (
-                  <AppSidebarMenutItem item={item} index={index} />
+                  <AppSidebarMenutItem item={item} index={index} key={index} />
                 ))}
               </SidebarMenu>
             </SidebarGroupContent>
