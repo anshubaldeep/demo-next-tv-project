@@ -47,6 +47,8 @@ const ProgramInfo = ({ movieDetails }) => {
             src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
             alt={title}
             className="w-full h-[86%] py-10 pl-10 object-cover"
+            width={1200}
+            height={1000}
           />
         </div>
         <div className="w-1/2 p-8">
