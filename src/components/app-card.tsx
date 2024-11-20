@@ -7,13 +7,17 @@ import { cn } from "@/lib/utils";
 import { useRouter } from "next/router";
 
 const AppCard = ({ genre, trayIndex, cardIndex, onFocus }) => {
-  const { push } = useRouter();
+  const { push, pathname } = useRouter();
   const onCardPress = () => {
-    push('/programInfo/' + genre.id)
+    if (pathname === "/watchlist") {
+      push("/watchlist/" + genre.id);
+    } else {
+      push("/programInfo/" + genre.id);
+    }
   };
   const { ref, focused, focusKey } = useFocusable({
     focusKey: `Card-${trayIndex}-${cardIndex}`,
-    onFocus: () => onFocus(cardIndex),
+    onFocus: () => onFocus(cardIndex, ref),
     onEnterPress: onCardPress,
   });
 

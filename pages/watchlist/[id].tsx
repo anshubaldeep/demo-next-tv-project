@@ -81,7 +81,7 @@ const ProgramInfo = ({ movieDetails }) => {
           </div>
           <FocusContext.Provider value={focusKey}>
             <AppButton
-              title={loading ? "Loading" : "Add to Watchlist"}
+              title={loading ? "Loading" : "Remove from Watchlist"}
               onClick={async () => {
                 setLoading(true);
                 await fetch(
@@ -91,7 +91,7 @@ const ProgramInfo = ({ movieDetails }) => {
                     body: JSON.stringify({
                       media_type: "movie",
                       media_id: Number(query.id),
-                      watchlist: true,
+                      watchlist: false,
                     }),
                   }
                 )

@@ -1,6 +1,6 @@
 import React from "react";
-import { options } from "../src/helper";
-import AppCarousel from "@/components/app-carousel";
+import { options } from "@/helper";
+import AppGrid from "@/components/app-grid";
 
 export const getServerSideProps = async () => {
   const watchlist = await fetch(
@@ -20,13 +20,13 @@ const Watchlist = ({ res }) => {
   const { results } = res;
 
   return (
-    <AppCarousel
-      val={{
+    <AppGrid
+      movies={{
         res: results,
         name: "Watchlist",
       }}
       trayIndex={0}
-      focusOnload={true}
+      //focusOnload={true}
     />
   );
 };
