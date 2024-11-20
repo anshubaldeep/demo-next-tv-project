@@ -11,10 +11,10 @@ export default function Layout({ children }) {
   return (
     <div className="w-full bg-slate-800">
       <SidebarProvider>
-        <div className="w-[14%]">
+        <div className="!w-[14%]">
         <AppSidebar />
         </div>
-        <main className="w-[86%] p-5 w-full">
+        <main className="!w-[86%] p-5 w-full">
           {children}
         </main>
       </SidebarProvider>

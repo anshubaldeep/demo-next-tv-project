@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
-import { w500BasePath } from "../../pages/helper";
+import { w500BasePath } from "../helper";
 import { useFocusable } from "@noriginmedia/norigin-spatial-navigation";
 import { cn } from "@/lib/utils";
 import { useRouter } from "next/router";

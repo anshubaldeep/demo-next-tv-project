@@ -1,5 +1,5 @@
 import AppCarousel from "@/components/app-carousel";
-import { options } from "./helper";
+import { options } from "../src/helper";
 
 
 // export async function getServerSideProps() {

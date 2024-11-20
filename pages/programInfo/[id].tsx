@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { getOptions, options } from "../helper";
+import { getOptions, options } from "../../src/helper";
 import AppButton from "@/components/app-button";
 import {
   FocusContext,

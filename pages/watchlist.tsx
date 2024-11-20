@@ -1,5 +1,5 @@
 import React from "react";
-import { options } from "./helper";
+import { options } from "../src/helper";
 import AppCarousel from "@/components/app-carousel";
 
 export const getServerSideProps = async () => {
