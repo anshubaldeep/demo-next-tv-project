@@ -20,7 +20,7 @@ const AppCarousel = ({ val, trayIndex, focusOnload = false }) => {
     if (focusOnload) {
       setTimeout(()=> {
         focusSelf();
-      }, 100)
+      }, 500)
     }
   }, [focusOnload, focusSelf]);
   const handleFocus = useCallback(
