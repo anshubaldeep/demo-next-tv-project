@@ -48,11 +48,11 @@ const VideoPlayerComp = ({
 
         console.log(Object.keys(shaka.ui));
 
-        player.configure({
-          drm: {
-            servers: { "com.widevine.alpha": licenseServer },
-          },
-        });
+        // player.configure({
+        //   drm: {
+        //     servers: { "com.widevine.alpha": licenseServer },
+        //   },
+        // });
         await player.load(manifestUri);
         console.log("The video has now been loaded!");
       } catch (error) {
