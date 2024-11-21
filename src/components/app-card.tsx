@@ -25,7 +25,7 @@ const AppCard = ({ genre, trayIndex, cardIndex, onFocus }) => {
     <Card
       key={genre.id}
       className={cn(
-        "rounded-xl w-80 h-80",
+        "rounded-xl w-72 h-72",
         focused ? "border-4 border-yellow-200" : "border-none"
       )}
       ref={ref}
