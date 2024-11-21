@@ -5,7 +5,7 @@ import { useCallback, useEffect } from "react";
 import { useRouter } from "next/router";
 
 const BACK = [27, 461];
-export default function Layout({ children }) {
+export default function Layout({ children, ...props }) {
   const { back } = useRouter();
   useEffect(() => {
     init({});
@@ -19,6 +19,9 @@ export default function Layout({ children }) {
       back();
     }
   }, []);
+  if(props.noLayout) {
+    return <>{children}</>
+  }
   return (
     <div className="w-full bg-slate-800">
       <SidebarProvider>
