@@ -24,7 +24,7 @@ export async function getServerSideProps(context) {
 }
 
 const ProgramInfo = ({ movieDetails }) => {
-  const { query } = useRouter();
+  const { query, push } = useRouter();
 
   const {
     title,
@@ -101,6 +101,13 @@ const ProgramInfo = ({ movieDetails }) => {
               }}
               focusedStyle="bg-yellow-500 text-black border-black"
               className="mt-10 border-white border-2"
+              focusSelfOnLoad={true}
+            />
+            <AppButton
+              title="Play"
+              onClick={() => push('/player')}
+              focusedStyle="bg-yellow-500 text-black border-black"
+              className="mt-10 border-white border-2 ml-10"
               focusSelfOnLoad={true}
             />
           </FocusContext.Provider>
