@@ -15,7 +15,7 @@ export const getServerSideProps = async () => {
 
 const Player = () => {
   return (
-    <div className="relative w-full h-full lg:h-[98vh]">
+    <div className="relative w-full h-[100vh]">
       <VideoPlayerComp manifestUrl="https://storage.googleapis.com/shaka-demo-assets/angel-one/dash.mpd" />
     </div>
   );
